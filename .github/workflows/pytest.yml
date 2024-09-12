@@ -2,10 +2,11 @@ name: tests unitaires
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
+        ubuntu-version: ["ubuntu-22.04", "ubuntu-20.04"]
         python-version: ["3.8", "3.10"]
+    runs-on: ${{matrix.ubuntu-version}}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python for Demo
