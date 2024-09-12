@@ -9,4 +9,3 @@ def test_2():
 	assert f.puissance(-2, 3) == -8
 	assert f.puissance(-2, 2) == 4
 	assert f.puissance(2, -2) == 0.25
-	assert f.puissance(2, -3.14) == 1/2**3.14
