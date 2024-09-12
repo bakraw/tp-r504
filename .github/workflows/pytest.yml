@@ -2,14 +2,20 @@ name: tests unitaires
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ubuntu-version: ["ubuntu-22.04", "ubuntu-20.04"]
+        python-version: ["3.8", "3.10"]
+    runs-on: ${{matrix.ubuntu-version}}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python for Demo
         uses: actions/setup-python@v4
+        with:
+          python-version: ${{matrix.python-version}}
       - name: Install pytest
         run: python3 -m pip install pytest
       - name: Run tests
-        run: python3 -m pytest TP1/test.py
-      - run: echo "Branche: ${{github.ref}}"
-      - run: echo "OS de la VM: ${{runner.os}}"
+        run: python3 --version; python3 -m pytest TP1/test.py
+      - run: echo "Branche - ${{github.ref}}"
+      - run: echo "OS de la VM - ${{runner.os}}"
