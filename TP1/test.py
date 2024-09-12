@@ -10,7 +10,7 @@ def test_2():
 	assert f.puissance(-2.0, 3.0) == -8
 	assert f.puissance(-2.0, 2.0) == 4
 	assert f.puissance(2.0, -2.0) == 0.25
-	assert f.puissance(2.0, math.pi()) == math.exp(math.pi()*math.log(a))
+	assert f.puissance(2.0, math.pi) == math.exp(math.pi * math.log(a))
 
 def test_4():
 	with pytest.raises(ValueError):
