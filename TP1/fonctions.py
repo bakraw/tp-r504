@@ -10,4 +10,4 @@ def puissance(a, b):
 		for i in range(b-1):
 			res *= a
 		return res
-	return 1/f.puissance(a, -b)
+	return 1/puissance(a, -b)
